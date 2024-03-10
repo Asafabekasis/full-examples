@@ -9,10 +9,12 @@ import { MenuComponent } from './mainmenu/mainmenu.component';
 import { TemplateexamplesComponent } from './examples/templateexamples/components/templateexamples/templateexamples.component';
 import { DirectiveexamplesComponent } from './examples/directiveexamples/directiveexamples/directiveexamples.component';
 import { HomeComponent } from './components/home/home.component';
+import { MainComponent } from './components/main/main.component';
 
 const routes: Routes = [
 
   { path:'home', component: HomeComponent },
+  { path:'main', component: MainComponent },
   { path:'api', component: ApiexamplesComponent },
   { path:'forms', component: FormexamplesComponent },
   { path:'viewchild', component: ViewchildexamplesComponent },
@@ -24,13 +26,9 @@ const routes: Routes = [
   { path: 'route', loadChildren: () => import('./examples/routeexamples/routeexamples.module').then(m => m.RouteexamplesModule) },
   { path: 'rxjsexamples', loadChildren: () => import('./examples/rxjsexamples/rxjsexamples.module').then(m => m.RxjsexamplesModule) },
   { path:'', component: MenuComponent },
-
   { path: 'canactivexamples', loadChildren: () => import('./examples/canactivexamples/canactivexamples.module').then(m => m.CanactivexamplesModule) },
-
   { path: 'lifecycleexamples', loadChildren: () => import('./examples/lifecycleexamples/lifecycleexamples.module').then(m => m.LifecycleexamplesModule) },
   { path: '**', redirectTo:''},
-
-
   // { path:'', component: MenuComponent },
   // { path:'', component: MenuComponent },
   // { path:'', component: MenuComponent },
