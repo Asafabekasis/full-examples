@@ -27,21 +27,7 @@ export class ApiexamplesComponent implements OnInit {
   // }
 
   ngOnInit(): void {
-    // const a = new Subject();
-    // setTimeout(() => {
-    //   a.next('90');
-    // }, 2000);
-    // setTimeout(() => {
-    //   a.error('ERROR!');
-    // }, 4000);
-    // setTimeout(() => {
-    //   a.complete();
-    // }, 6000);
-    // a.subscribe({
-    //   next: (v) => console.log('next', v),
-    //   error: (e) => console.error('error', e),
-    //   complete: () => console.info('complete')
-    // })
+
     this._api.getCustomers().subscribe({
       next: (v) => this.customers = v,
       error: (e) => console.error('aaaaaaaaaaaaaaaaaaaaaaa', e),

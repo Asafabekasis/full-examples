@@ -19,9 +19,10 @@ import { PipeexamplesComponent } from './examples/pipeexamples/pipeexamples.comp
 import { MultiplierPipe } from './pipes/pipes.pipe';
 import { ApiexamplesComponent } from './examples/apiexamples/apiexamples.component';
 import { HttpClientModule } from '@angular/common/http';
-import { MenuComponent } from './menu/menu.component';
+import { MenuComponent } from './mainmenu/mainmenu.component';
 import { TemplateexamplesComponent } from './examples/templateexamples/components/templateexamples/templateexamples.component';
 import { DirectiveexamplesComponent } from './examples/directiveexamples/directiveexamples/directiveexamples.component';
+import { MainComponent } from './components/main/main.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { DirectiveexamplesComponent } from './examples/directiveexamples/directi
     MenuComponent,
     TemplateexamplesComponent,
     DirectiveexamplesComponent,
+    MainComponent,
   ],
   imports: [
     BrowserModule,

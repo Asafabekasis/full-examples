@@ -21,3 +21,10 @@
     margin-bottom: 2rem;
     padding: 1rem;
 }
+
+.clickable{
+    cursor: pointer;
+    &.underline:hover{
+        text-decoration: underline;
+    }
+}

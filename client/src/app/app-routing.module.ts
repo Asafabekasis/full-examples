@@ -5,7 +5,7 @@ import { FormexamplesComponent } from './examples/formexamples/formexamples.comp
 import { ViewchildexamplesComponent } from './examples/viewchildexamples/viewchildexamples.component';
 import { PipeexamplesComponent } from './examples/pipeexamples/pipeexamples.component';
 import { HostexamplesComponent } from './examples/hostexamples/hostexamples.component';
-import { MenuComponent } from './menu/menu.component';
+import { MenuComponent } from './mainmenu/mainmenu.component';
 import { TemplateexamplesComponent } from './examples/templateexamples/components/templateexamples/templateexamples.component';
 import { DirectiveexamplesComponent } from './examples/directiveexamples/directiveexamples/directiveexamples.component';
 import { HomeComponent } from './components/home/home.component';
