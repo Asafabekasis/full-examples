@@ -43,7 +43,7 @@ export class ApiexamplesComponent implements OnInit {
     //   complete: () => console.info('complete')
     // })
     this._api.getCustomers().subscribe({
-      next: (v) => console.log('next', v),
+      next: (v) => this.customers = v,
       error: (e) => console.error('aaaaaaaaaaaaaaaaaaaaaaa', e),
       complete: () => console.info('complete'),
     });

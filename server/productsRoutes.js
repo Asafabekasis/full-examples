@@ -1,10 +1,10 @@
 const router = require("express").Router();
 
-router.get("/getproducts", function (req, res) {
+router.get("/", function (req, res) {
   res.send(products);
 });
 
-router.get("/getproduct/:id", function (req, res) {
+router.get("/:id", function (req, res) {
   let id = req.params.id;
   let product = products.find((ob) => ob.id == id);
   res.send(product);

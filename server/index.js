@@ -18,9 +18,9 @@ app.use(express.urlencoded({ limit: "500000000mb" }));
 const CryptoJS = require("crypto-js");
 const fs = require("fs");
 //---------------------------------------------------------------->
-app.use("/customers", require("./customersRoutes"));
+app.use("/getcustomers", require("./customersRoutes"));
 app.use("/auth", require("./authRoutes"));
-app.use("/products", require("./productsRoutes"));
+app.use("/getproducts", require("./productsRoutes"));
 //---------------------------------------------------------------->
 //ssl
 // const express = require('express');
