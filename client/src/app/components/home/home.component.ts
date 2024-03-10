@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit {
         console.log(err);
       },
       complete: () => {
-        console.log('complete post');
+        console.log('complete');
       },
     });
 

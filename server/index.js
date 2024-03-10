@@ -66,6 +66,9 @@ app.post("/postcrypt", function (req, res) {
     secretKey
   ).toString(CryptoJS.enc.Utf8);
   console.log("password After Decrypt:::", decryptedPassword);
+
+    res.send(JSON.stringify('complete post'))
+  
 });
 
 //===========================================================================================================================================================================================================================================================>
