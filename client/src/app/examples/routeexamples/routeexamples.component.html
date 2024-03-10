@@ -1,0 +1,15 @@
+<div class="component-wrapper">
+    <h4>Route Examples</h4>
+
+    <div class="module-wrapper">
+        <h4>navigate to route with id with [routerLink]</h4>
+        <div *ngFor="let example of examples" >
+            <div [routerLink]="'child/'+example.id">{{example.name }} - {{example.id}}</div>
+        </div>
+        <h4>navigate with router.navigate</h4>
+        <div *ngFor="let example of examples" >
+            <div (click)="nav(example.id)">{{example.name }} - {{example.id}}</div>
+        </div>
+    </div>
+
+</div>

@@ -1,1 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
+.component-wrapper{
+    border:2px solid black;
+    margin-bottom: 2rem;
+    padding: 1rem;
+}
+
+.module-wrapper{
+    border:2px solid red;
+    margin-bottom: 2rem;
+    padding: 1rem;
+}
+
+.example-wrapper{
+    border:2px solid orange;
+    margin-bottom: 2rem;
+    padding: 1rem;
+}
+
+.main-wrapper{
+    border:2px dotted orange;
+    margin-bottom: 2rem;
+    padding: 1rem;
+}

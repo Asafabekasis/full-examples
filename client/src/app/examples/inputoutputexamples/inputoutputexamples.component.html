@@ -1,0 +1,13 @@
+<div class="component-wrapper">
+  <div class="module-wrapper">
+    <h4>items list come from child display on parent</h4>
+    <ul>
+      <li *ngFor="let item of items">{{ item.productName }} - {{ item.id }}</li>
+    </ul>
+  </div>
+  <app-childexample
+    [item]="currentItem"
+    (newItemEvent)="addItem($event)"
+    (removeItemEvent)="removeItem($event)"
+  ></app-childexample>
+</div>

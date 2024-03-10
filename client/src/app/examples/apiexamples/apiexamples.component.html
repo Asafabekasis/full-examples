@@ -1,0 +1,13 @@
+<div class="component-wrapper">
+  <h4>Api Examples</h4>
+
+  <h5>Customers List From Api </h5>
+  <div *ngFor="let customer of customers">
+    <div>{{ customer.customerName }} - {{ customer.id }}</div>
+  </div>
+
+  <h5>Products List From Api</h5>
+  <div *ngFor="let product of products">
+    <div>{{ product.productName }} - {{ product.id }}</div>
+  </div>
+</div>

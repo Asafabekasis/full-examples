@@ -1,0 +1,22 @@
+<div class="component-wrapper">
+  <h4>Templates Examples</h4>
+
+  <div *ngIf="false;else aaa">aaabbbccc</div>
+
+  <ng-template #aaa>
+    <div>aaa</div>
+  </ng-template>
+
+  <ng-container *ngTemplateOutlet="bbb">bbbcccddd</ng-container>
+
+  <ng-template #bbb>
+    <div>
+      <div>bbb</div>
+    </div>
+  </ng-template>
+
+  <ng-container>ccc</ng-container>
+
+  <div *ngIf="true;else ddd">dddeeefff</div>
+  <ng-template #ddd>ddd</ng-template>
+</div>

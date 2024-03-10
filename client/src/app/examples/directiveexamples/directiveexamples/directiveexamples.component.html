@@ -1,0 +1,33 @@
+<div class="component-wrapper">
+  <h4>Directive Examples</h4>
+
+  <div class="main-wrapper">
+    <h3>Built-In-Directives</h3>
+
+    <div class="example-wrapper">
+      <h5>NgClass:</h5>
+      <div [ngClass]="{ 'example-class': ngClassCondition }">
+        Class depend on condition
+      </div>
+      <button (click)="this.ngClassCondition = !this.ngClassCondition">
+        Change
+      </button>
+    </div>
+
+    <div class="example-wrapper">
+      <h5>NgStyle:</h5>
+      <div [ngStyle]="{ color: ngStyleCondition ? 'green' : 'blue' }">
+        Style attribute depend on condition
+      </div>
+      <button (click)="this.ngStyleCondition = !this.ngStyleCondition">
+        Change
+      </button>
+    </div>
+
+    <div class="example-wrapper">
+      <h5>NgModel:</h5>
+      <input [(ngModel)]="ngModalExample" />
+      <div>ngModalExample Value: {{ ngModalExample }}</div>
+    </div>
+  </div>
+</div>

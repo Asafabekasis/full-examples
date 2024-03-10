@@ -1,0 +1,99 @@
+<div class="component-wrapper">
+  <h4>Forms Examples</h4>
+
+  <div class="example-wrapper">
+    <h5>Template Drivin</h5>
+    <div>
+      Template Drivin ngModel: <input type="text" [(ngModel)]="favoriteColor" />
+    </div>
+    <div>Template Drivin #: <input type="text" #val /></div>
+    <button (click)="check($event, val.value)">CHECK</button>
+  </div>
+
+  <div class="example-wrapper">
+    <h5>Form Control</h5>
+    <div>
+      <input type="text" [formControl]="favoriteColorControl" />
+    </div>
+    <button (click)="check($event)">CHECK</button>
+  </div>
+
+  <div class="example-wrapper">
+    <h5>Form Group</h5>
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit($event)">
+      <label for="first-name">First Name: </label>
+      <input id="first-name" type="text" formControlName="firstName" />
+
+      <label for="last-name">Last Name: </label>
+      <input id="last-name" type="text" formControlName="lastName" />
+      <p>Complete the form to enable button.</p>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <div class="example-wrapper">
+    <h5>Form Builder</h5>
+    <form [formGroup]="form" (ngSubmit)="onSubmitFormBuilder($event)">
+      <label for="first-name">fieldOne: </label>
+      <input id="first-name" type="text" formControlName="fieldOne" />
+
+      <label for="last-name">fieldTwo: </label>
+      <input id="last-name" type="text" formControlName="fieldTwo" />
+
+      <label for="last-name">fieldThree: </label>
+      <input id="last-name" type="text" formControlName="fieldThree" />
+      <p></p>
+      <button type="submit" [disabled]="!form.valid">Submit</button>
+    </form>
+    <br />
+    {{ this.fieldOneGet }}
+  </div>
+
+  <div class="example-wrapper">
+    <h5>Nested Form Group In Form Group</h5>
+    <form [formGroup]="profileForm2" (ngSubmit)="address($event)">
+      <label for="state">lastName: </label>
+      <input id="state" type="text" formControlName="lastName" />
+      <br />
+
+      <label for="zip">firstName: </label>
+      <input id="zip" type="text" formControlName="firstName" />
+
+      <div formGroupName="address">
+        <h5>Address Form Group In Form Group</h5>
+        <label for="street">Street: </label>
+        <input id="street" type="text" formControlName="street" />
+        <br />
+
+        <label for="city">City: </label>
+        <input id="city" type="text" formControlName="city" />
+        <br />
+
+        <label for="state">State: </label>
+        <input id="state" type="text" formControlName="state" />
+        <br />
+
+        <label for="zip">Zip Code: </label>
+        <input id="zip" type="text" formControlName="zip" />
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="example-wrapper">
+    <h5>Form Array</h5>
+    <form [formGroup]="profileFormArray" (ngSubmit)="addAlias($event)">
+      <div formArrayName="aliases">
+        <h2>Aliases</h2>
+        <button type="submit" [disabled]="!aliases.valid">
+          + Add another alias
+        </button>
+        <div *ngFor="let alias of aliases.controls; let i = index">
+          <!-- The repeated alias template -->
+          <label for="alias-{{ i }}">Alias:</label>
+          <input id="alias-{{ i }}" type="text" [formControlName]="i" />
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

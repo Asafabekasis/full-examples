@@ -1,0 +1,57 @@
+<div class="component-wrapper">
+  <h4>Rxjs Examples</h4>
+  
+  <div class="module-wrapper">
+    
+    <h5>Rxjs Operators</h5>
+
+    <!-- <div *ngFor="let s of getSomething">
+    <div >{{s.productName}}</div>
+    <div >{{s.id}}</div>
+    <div >{{s.color}}</div>
+    </div> -->
+
+    <div class="example-wrapper">
+      <div> concat: {{this.concatExample | async}}</div>
+    </div>
+
+    <div class="example-wrapper">
+      <div> interval And take: {{this.takeFourNumbers | async}}</div>
+    </div>
+
+    <div class="example-wrapper">
+      <div> combineLatest And timer: {{this.combinedTimers | async}}</div>
+    </div>
+
+    <!-- <div class="example-wrapper">
+      <div>FromEvent click : {{this.fromEventExample | async}}</div>
+    </div> -->
+
+    <div class="example-wrapper">
+      <div>behaviorSubjectExampleResult Result:{{behaviorSubjectExampleResult}}</div>
+      <br>
+      <div>
+        <button (click)="startSubjectHighlight()">
+          START GENERAL SERVICE > HIGHLIGHT DIRECTIVE LISTEN TO SUBJECT >
+          DIRECTIVE CHANGE SHOW IN CHILDS
+        </button>
+      </div>
+      <br />
+      <div>
+        <button (click)="stopTakeUntill()">
+          STOP HIGHLIGHT SUBJECT IN CHILDS WITH TAKEUNTILL
+        </button>
+      </div>
+      <br />
+      <div>
+        <button (click)="stopStartTakeWhile()">
+          BOOLEAN HIGHLIGHT SUBJECT IN CHILDS WITH TAKEWHILE</button
+        ><span>{{ this.condition }}</span>
+      </div>
+    </div>
+  </div>
+  <app-childoneexample></app-childoneexample>
+  <app-childtwoexample></app-childtwoexample>
+</div>
+
+<!---->

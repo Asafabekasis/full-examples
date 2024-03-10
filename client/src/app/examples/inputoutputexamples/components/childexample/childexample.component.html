@@ -1,0 +1,16 @@
+<div class="component-wrapper">
+  <h4>item come from parent display on child</h4>
+  <p>Today's item: {{ item }}</p>
+
+  <label for="item-input">Add an item:</label>
+  <input type="text" id="item-input" #newItem />
+  <button type="button" (click)="addNewItem(newItem.value)">
+    Add to parent's list
+  </button>
+
+  <label for="item-input">Remove an item:</label>
+  <input type="text" id="item-input" #removeItem />
+  <button type="button" (click)="removeItemTrigger(removeItem.value)">
+    Insert Id to Remove From parent's list
+  </button>
+</div>

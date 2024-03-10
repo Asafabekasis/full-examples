@@ -1,0 +1,12 @@
+<div class="component-wrapper">
+  <h5>LifeCycles Example</h5>
+  <button (click)="addCount()">Add 1</button>
+  <br />
+  <div>Count: {{ this.count }}</div>
+
+  <app-childexamples [simple]="simple" [complex]="complex"></app-childexamples>
+
+  <button (click)="changeSimple()">changeSimple()</button>
+  <button (click)="changeComplexReplace()">changeComplexReplace()</button>
+  <button (click)="changeComplexMutate()">changeComplexMutate()</button>
+</div>

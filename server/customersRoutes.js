@@ -1,8 +1,7 @@
 const router = require("express").Router();
-const { onlyUsers } = require("./mw");
 
 router.get("/", async (req, res) => {
-  res.send("empty path");
+  res.send(customers);
 });
 
 module.exports = router;

@@ -1,0 +1,13 @@
+<div class="component-wrapper">
+  <h4>Child Two Examples</h4>
+  <div HighlightDirective>rxjs module component trigger</div>
+
+  <h5>SubjectTwo Results (value comes from childOne Component):</h5>
+
+  <div>{{ this.subjectResults }}</div>
+
+  <div>
+    <input type="text" #val />
+    <button (click)="sendVal(val.value)">Submit</button>
+  </div>
+</div>
