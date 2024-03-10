@@ -44,17 +44,6 @@ export class ApiexamplesComponent implements OnInit {
       }
     );
 
-    this._api.getSomething().subscribe(
-      (res) => {
-        console.log('something');
-        console.log('something res',res);
-
-      },
-      (err) => {
-        console.log('get something error');
-      }
-    );
-
     this._api.getProductsAndCustomersForkJoin().subscribe({
       next: (res) => {
         console.log(res);
