@@ -22,7 +22,7 @@ import { DirectiveexamplesComponent } from './examples/directiveexamples/directi
 import { MainComponent } from './components/main/main.component';
 import { EncryptdecryptComponent } from './examples/encryptdecrypt/encryptdecrypt.component';
 import { StoreModule } from '@ngrx/store';
-import { counter2Reducer, counterReducer, customersReducer, generalReducer, productsReducer } from './examples/ngrxexamples/main.reducer';
+import { productsReducer } from './examples/ngrxexamples/main.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { MainEffects } from './examples/ngrxexamples/main.effect';
@@ -54,10 +54,6 @@ import { MainEffects } from './examples/ngrxexamples/main.effect';
     HttpClientModule,
     StoreModule.forRoot({
       products: productsReducer,
-      customers: customersReducer, 
-      mainheader:generalReducer,
-      count: counterReducer,
-      count2: counter2Reducer 
     }),
     StoreDevtoolsModule.instrument({ maxAge: 50 }),
     EffectsModule.forRoot([MainEffects]),

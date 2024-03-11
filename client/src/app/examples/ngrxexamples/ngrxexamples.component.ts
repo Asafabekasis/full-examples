@@ -9,7 +9,7 @@ import { selectProductsState } from './main.selectors'
 @Component({
   selector: 'app-ngrxexamples',
   templateUrl: './ngrxexamples.component.html',
-  styleUrls: ['./ngrxexamples.component.css'],
+  styleUrls: ['./ngrxexamples.component.scss'],
 })
 export class NgrxexamplesComponent implements OnInit {
   products$: Observable<any>;

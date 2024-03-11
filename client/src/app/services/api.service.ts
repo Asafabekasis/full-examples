@@ -74,7 +74,7 @@ export class ApiService {
   }
 
   //=====NGRX HANDLING=====>
-  
+
   getAllProducts() {
     return this.http.get(environment.api_url + '/getbasicproducts');
   }
@@ -91,13 +91,8 @@ export class ApiService {
     );
   }
 
-  getAllCustomers() {
-    return this.http.get(environment.api_url + '/getbasiccustomers');
-  }
-
   getAnyNew(type) {
-    console.log('servic',type);
-    
+    console.log('service',type);
     return this.http.get(environment.api_url + '/getnewany/'+type);
   }
 

@@ -49,36 +49,6 @@ export const deleteProduct = createAction(
 
 //============================================================================================================================>
 
-export const getCustomersAction = createAction(
-  '[Main Component get customers] customers'
-);
-export const customersAction = createAction(
-  '[main.effect follow Main Component get products] customers',
-  props<any>()
-);
-
-export const customerChangeActive = createAction(
-    'Change Customer Active',
-    props<any>()
-  );
-
-  export const addCustomerEffect = createAction(
-    'add Customer Effect',
-    props<any>()
-);
-
-export const addCustomerAction = createAction(
-    'add Customer Action',
-    props<any>()
-);
-
-export const deleteCustomer = createAction(
-  'Delete Customer Active',
-    props<any>()
-);
-
-//============================================================================================================================>
-
 export const getAnyEffect = createAction(
   'Get Type',
     props<any>()
@@ -92,23 +62,5 @@ export const deleteEffect = createAction(
 //============================================================================================================================>
 
 
-//group Action
-export const groupPageActionsCounter = createActionGroup({
-  source: 'Products Page',
-  events: {
-    'Reset': emptyProps(),
-    'Increment Blah Blah': emptyProps(),
-    'Decrement': emptyProps(),
-    'Increment10': props<{payload:number}>(),
-    //val1 and val2 MUST be equal in there names in the same function we are sending them from
-    'Increment100': props<{val1:number,val2:number}>(),
-    'Increment1000': props<{val1:number,val2:Array<any>}>()
 
-  },
-});
-
-//single Action
-// export const increment2 = createAction('[Counter Component] Increment2');
-export const decrement2 = createAction('[Counter Component] Decrement2');
-export const reset2 = createAction('[Counter Component] Reset2');
 
