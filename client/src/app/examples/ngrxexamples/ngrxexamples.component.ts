@@ -21,6 +21,12 @@ export class NgrxexamplesComponent implements OnInit {
   ngOnInit(): void {
     this.store.dispatch(mainActions.getProductsAction());
     console.log(this.products$);
+    this.products$.subscribe(
+      res=>{
+        console.log(res);
+        
+      }
+    )
     
 
   }

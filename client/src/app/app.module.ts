@@ -1,15 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
-
 import { HostexamplesComponent } from './examples/hostexamples/hostexamples.component';
 import {
   HostBindingStyleDirective,
   HostBindingClassDirective,
   HostBindingDomDirective,
 } from './directives/host.directive';
-
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { FormexamplesComponent } from './examples/formexamples/formexamples.component';
@@ -48,6 +46,7 @@ import { MainEffects } from './examples/ngrxexamples/main.effect';
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
@@ -58,6 +57,7 @@ import { MainEffects } from './examples/ngrxexamples/main.effect';
     }),
     StoreDevtoolsModule.instrument({ maxAge: 50 }),
     EffectsModule.forRoot([MainEffects]),
+    
   ],
   providers: [],
   bootstrap: [AppComponent],
