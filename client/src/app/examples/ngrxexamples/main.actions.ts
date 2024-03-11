@@ -61,6 +61,18 @@ export const deleteEffect = createAction(
 
 //============================================================================================================================>
 
+export const groupPageActionsCounter = createActionGroup({
+  source: 'Products Page',
+  events: {
+    'Reset': emptyProps(),
+    'Increment Blah Blah': emptyProps(),
+    'Decrement': emptyProps(),
+    'Increment10': props<{payload:number}>(),
+    //val1 and val2 MUST be equal in there names in the same function we are sending them from
+    'Increment100': props<{val1:number,val2:number}>(),
+    'Increment1000': props<{val1:number,val2:Array<any>}>()
 
+  },
+});
 
 
