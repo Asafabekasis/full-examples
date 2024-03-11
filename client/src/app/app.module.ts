@@ -23,6 +23,7 @@ import { MenuComponent } from './mainmenu/mainmenu.component';
 import { TemplateexamplesComponent } from './examples/templateexamples/components/templateexamples/templateexamples.component';
 import { DirectiveexamplesComponent } from './examples/directiveexamples/directiveexamples/directiveexamples.component';
 import { MainComponent } from './components/main/main.component';
+import { EncryptdecryptComponent } from './examples/encryptdecrypt/encryptdecrypt.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { MainComponent } from './components/main/main.component';
     TemplateexamplesComponent,
     DirectiveexamplesComponent,
     MainComponent,
+    EncryptdecryptComponent,
   ],
   imports: [
     BrowserModule,

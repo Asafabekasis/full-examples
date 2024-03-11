@@ -10,6 +10,7 @@ import { TemplateexamplesComponent } from './examples/templateexamples/component
 import { DirectiveexamplesComponent } from './examples/directiveexamples/directiveexamples/directiveexamples.component';
 import { HomeComponent } from './components/home/home.component';
 import { MainComponent } from './components/main/main.component';
+import { EncryptdecryptComponent } from './examples/encryptdecrypt/encryptdecrypt.component';
 
 const routes: Routes = [
 
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path:'host', component: HostexamplesComponent },
   { path:'template', component: TemplateexamplesComponent },
   { path:'directive', component: DirectiveexamplesComponent },
+  { path:'encryptdecrypt', component: EncryptdecryptComponent },
   { path: 'inputoutput', loadChildren: () => import('./examples/inputoutputexamples/inputoutputexamples.module').then(m => m.InputoutputexamplesModule) },
   { path: 'route', loadChildren: () => import('./examples/routeexamples/routeexamples.module').then(m => m.RouteexamplesModule) },
   { path: 'rxjsexamples', loadChildren: () => import('./examples/rxjsexamples/rxjsexamples.module').then(m => m.RxjsexamplesModule) },
