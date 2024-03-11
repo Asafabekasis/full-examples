@@ -13,7 +13,6 @@ import { MainComponent } from './components/main/main.component';
 import { EncryptdecryptComponent } from './examples/encryptdecrypt/encryptdecrypt.component';
 
 const routes: Routes = [
-
   { path:'home', component: HomeComponent },
   { path:'main', component: MainComponent },
   { path:'api', component: ApiexamplesComponent },
@@ -27,14 +26,11 @@ const routes: Routes = [
   { path: 'inputoutput', loadChildren: () => import('./examples/inputoutputexamples/inputoutputexamples.module').then(m => m.InputoutputexamplesModule) },
   { path: 'route', loadChildren: () => import('./examples/routeexamples/routeexamples.module').then(m => m.RouteexamplesModule) },
   { path: 'rxjsexamples', loadChildren: () => import('./examples/rxjsexamples/rxjsexamples.module').then(m => m.RxjsexamplesModule) },
-  { path:'', component: MenuComponent },
   { path: 'canactivexamples', loadChildren: () => import('./examples/canactivexamples/canactivexamples.module').then(m => m.CanactivexamplesModule) },
   { path: 'lifecycleexamples', loadChildren: () => import('./examples/lifecycleexamples/lifecycleexamples.module').then(m => m.LifecycleexamplesModule) },
+  { path: 'ngrxexamples', loadChildren: () => import('./examples/ngrxexamples/ngrxexamples.module').then(m => m.NgrxexamplesModule) },
+  { path:'', component: MenuComponent },
   { path: '**', redirectTo:''},
-  // { path:'', component: MenuComponent },
-  // { path:'', component: MenuComponent },
-  // { path:'', component: MenuComponent },
-
 ];
 
 @NgModule({

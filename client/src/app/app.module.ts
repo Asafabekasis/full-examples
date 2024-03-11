@@ -11,7 +11,6 @@ import {
 } from './directives/host.directive';
 
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-
 import { AppComponent } from './app.component';
 import { FormexamplesComponent } from './examples/formexamples/formexamples.component';
 import { ViewchildexamplesComponent } from './examples/viewchildexamples/viewchildexamples.component';
@@ -24,6 +23,11 @@ import { TemplateexamplesComponent } from './examples/templateexamples/component
 import { DirectiveexamplesComponent } from './examples/directiveexamples/directiveexamples/directiveexamples.component';
 import { MainComponent } from './components/main/main.component';
 import { EncryptdecryptComponent } from './examples/encryptdecrypt/encryptdecrypt.component';
+import { StoreModule } from '@ngrx/store';
+import { productsReducer } from './examples/ngrxexamples/main.reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
+import { MainEffects } from './examples/ngrxexamples/main.effect';
 
 @NgModule({
   declarations: [
@@ -49,6 +53,11 @@ import { EncryptdecryptComponent } from './examples/encryptdecrypt/encryptdecryp
     FormsModule,
     MultiplierPipe,
     HttpClientModule,
+    StoreModule.forRoot({
+      products: productsReducer,
+    }),
+    StoreDevtoolsModule.instrument({ maxAge: 50 }),
+    EffectsModule.forRoot([MainEffects]),
   ],
   providers: [],
   bootstrap: [AppComponent],
