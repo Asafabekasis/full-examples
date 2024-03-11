@@ -6,9 +6,9 @@ import {
 } from '@ngrx/store';
 
 export const groupPageActions = createActionGroup({
-  source: 'Products Page',
+  source: '[Main Component get products group action] products',
   events: {
-    Example: emptyProps(),
+    getProductsActionFromGroupAction: emptyProps(),
   },
 });
 

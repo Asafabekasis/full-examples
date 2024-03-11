@@ -14,19 +14,37 @@ export class MainEffects {
     this.actions$.pipe(
       ofType(mainActions.getProductsAction),
       tap(() => {
-        console.log('new getproducts occurred in queue');
+        console.log('new getproducts occurred in queue (Single, No Group)');
       }),
       exhaustMap(() =>
         this._api.getProducts().pipe(
           map((products) => mainActions.productsAction({ payload: products })),
           tap((products) => {
-            console.log(products);
+            console.log('products request (single)',products);
           }),
           catchError(() => EMPTY)
         )
       )
     )
   );
+
+  loadProductsFromGroup$ = createEffect(() =>
+  this.actions$.pipe(
+    ofType(mainActions.groupPageActions.getproductsactionfromgroupaction),
+    tap(() => {
+      console.log('new groupPageActions getproducts occurred in queue');
+    }),
+    exhaustMap(() =>
+      this._api.getProducts().pipe(
+        map((products) => mainActions.productsAction({ payload: products })),
+        tap((products) => {
+          console.log('products from group action',products);
+        }),
+        catchError(() => EMPTY)
+      )
+    )
+  )
+);
 
 //===============================================================================================================>
 }
