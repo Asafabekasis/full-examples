@@ -53,14 +53,12 @@ export class NgrxexamplesComponent implements OnInit {
     this.form.reset();
   }
 
-  getNew(){
+  getSaves(){
     this.store.dispatch(
       mainActions.getAnyEffect({
         payload: 'products',
       })
     );
   }
-
-  edit(i, product) {}
 
 }

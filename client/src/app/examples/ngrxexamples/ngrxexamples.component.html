@@ -1,34 +1,29 @@
-<div class="flex-container">
-  <div class="flex-child">
-    <button (click)="getNew()">get saves</button>
-    <div *ngFor="let product of products$ | async; let i = index">
-      Id:{{ product.id }} Product Name:
-      <span [ngStyle]="{ 'background-color': product.color }">{{
-        product.productName
-      }}</span>
-      , Active: {{ product.active }}, Price: {{ product.price }}
-      <button (click)="deleteProduct(i, product)" *ngIf="product?.delete">delete</button>
-    </div>
+<div class="module-wrapper">
+  <button (click)="getSaves()">get saves</button>
+  <div *ngFor="let product of products$ | async; let i = index">
+    Id:{{ product.id }} Product Name:
+    <span [ngStyle]="{ 'background-color': product.color }">{{
+      product.productName
+    }}</span>
+    , Active: {{ product.active }}, Price: {{ product.price }}
+    <button (click)="deleteProduct(i, product)" *ngIf="product?.delete">
+      delete
+    </button>
   </div>
 
-  <div class="flex-child">
-    <h3>Add New Product</h3>
-    <form [formGroup]="form" (ngSubmit)="add()">
-      <div>
-        Product Name: <input type="text" formControlName="productName" />
-      </div>
-      <div>Product Color: <input type="text" formControlName="color" /></div>
-      <div>Product Price: <input type="number" formControlName="price" /></div>
-      <div>
-        Product Section: <input type="text" formControlName="section" />
-      </div>
-      <div>Product Id: <input type="text" formControlName="id" /></div>
-      <button type="submit">Submit</button>
-    </form>
-  </div>
+<div >
+  <h3>Add New Product</h3>
+  <form [formGroup]="form" (ngSubmit)="addProduct()">
+    <div>Product Name: <input type="text" formControlName="productName" /></div>
+    <div>Product Color: <input type="text" formControlName="color" /></div>
+    <div>Product Price: <input type="number" formControlName="price" /></div>
+    <div>Product Section: <input type="text" formControlName="section" /></div>
+    <div>Product Id: <input type="text" formControlName="id" /></div>
+    <button type="submit">Submit</button>
+  </form>
 </div>
 
-<h3>this is from selectors</h3>
+<h3>this is from selector</h3>
 <div *ngFor="let product of productsSelector$ | async; let i = index">
   Id:{{ product.id }} Product Name:
   <span [ngStyle]="{ 'background-color': product.color }">{{
@@ -36,3 +31,5 @@
   }}</span>
   , Active: {{ product.active }}, Price: {{ product.price }}
 </div>
+</div>
+
