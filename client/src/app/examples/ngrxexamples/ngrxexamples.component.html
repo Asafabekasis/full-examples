@@ -13,7 +13,7 @@
 
 <div >
   <h3>Add New Product</h3>
-  <form [formGroup]="form" (ngSubmit)="addProduct()">
+  <form [formGroup]="form" (ngSubmit)="add()">
     <div>Product Name: <input type="text" formControlName="productName" /></div>
     <div>Product Color: <input type="text" formControlName="color" /></div>
     <div>Product Price: <input type="number" formControlName="price" /></div>
@@ -23,7 +23,7 @@
   </form>
 </div>
 
-<h3>this is from selector</h3>
+<h3>this is from selector</h3><button (click)="getSelector()">Get selector</button>
 <div *ngFor="let product of productsSelector$ | async; let i = index">
   Id:{{ product.id }} Product Name:
   <span [ngStyle]="{ 'background-color': product.color }">{{

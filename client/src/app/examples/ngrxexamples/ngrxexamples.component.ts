@@ -22,7 +22,6 @@ export class NgrxexamplesComponent implements OnInit {
     public _fb: FormBuilder
   ) {
     this.products$ = store.select('products');
-    this.productsSelector$ = store.select(selectProductsState);
   }
 
   public form: FormGroup;
@@ -35,6 +34,11 @@ export class NgrxexamplesComponent implements OnInit {
       section: ['', Validators.required],
       id: ['', Validators.required],
     });
+    this.getSaves()
+  }
+
+  getSelector(){
+    this.productsSelector$ = this.store.select(selectProductsState);
   }
 
   deleteProduct(i, product) {
