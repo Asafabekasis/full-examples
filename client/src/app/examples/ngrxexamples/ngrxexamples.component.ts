@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import * as mainActions from './main.actions';
 import { ApiService } from 'src/app/services/api.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { selectProductsState } from './main.selectors'
+import { selectProductsList, selectProductsState } from './main.selectors'
 
 @Component({
   selector: 'app-ngrxexamples',
@@ -38,7 +38,7 @@ export class NgrxexamplesComponent implements OnInit {
   }
 
   getSelector(){
-    this.productsSelector$ = this.store.select(selectProductsState);
+    this.productsSelector$ = this.store.select(selectProductsList);
   }
 
   deleteProduct(i, product) {
