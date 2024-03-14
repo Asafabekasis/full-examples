@@ -30,6 +30,7 @@ const routes: Routes = [
   { path: 'lifecycleexamples', loadChildren: () => import('./examples/lifecycleexamples/lifecycleexamples.module').then(m => m.LifecycleexamplesModule) },
   { path: 'ngrxexamples', loadChildren: () => import('./examples/ngrxexamples/ngrxexamples.module').then(m => m.NgrxexamplesModule) },
   { path:'', component: MenuComponent },
+  { path: 'testexamples', loadChildren: () => import('./examples/testexamples/testexamples.module').then(m => m.TestexamplesModule) },
   { path: '**', redirectTo:''},
 ];
 

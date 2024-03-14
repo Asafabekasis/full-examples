@@ -1,0 +1,32 @@
+<div class="module-wrapper">
+  <h5>Test Examples</h5>
+  <h5>Customers List From Api</h5>
+
+  <div class="example-wrapper">
+    <h5>Form Array</h5>
+    <form [formGroup]="profileFormArray" (ngSubmit)="addAlias($event)">
+      <div formArrayName="aliases">
+        <h2>Aliases</h2>
+        <button type="submit" [disabled]="!aliases.valid">
+          + Add another alias
+        </button>
+        <div *ngFor="let alias of aliases.controls; let i = index">
+          <!-- The repeated alias template -->
+          <label for="alias-{{ i }}">Alias:</label>
+          <input id="alias-{{ i }}" type="text" [formControlName]="i" />
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <br />
+
+  <div *ngFor="let product of products">
+    <div>{{ product.productName }} - {{ product.id }}</div>
+    <input type="text" #val /><button
+      (click)="changeName(product, val.value, $event)"
+    >
+      Change
+    </button>
+  </div>
+</div>
