@@ -1,14 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, forkJoin } from 'rxjs';
+import { Observable, forkJoin, map } from 'rxjs';
 import { products, customers } from '../interfaces';
 import { environment } from 'src/environments/environment';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ApiService {
-  constructor(public http: HttpClient) {}
+
+  public url: SafeResourceUrl;
+
+  constructor(private http: HttpClient, private sanitizer: DomSanitizer) {
+
+  }
 
   //===============================================================================================================================>
   //=====Encrypt / Decrypt
@@ -71,6 +77,27 @@ export class ApiService {
 
   public deleteSomething(body) {
     return this.http.delete(environment.api_url + `/deletesomthing`, body);
+  }
+
+  //fs
+
+  public getImage(body): Observable<SafeResourceUrl> {
+    return this.http
+      .post(environment.api_url + `/getwholefile`,body, { responseType: 'blob' })
+      .pipe(
+        map(x => {
+          const urlToBlob = window.URL.createObjectURL(x) // get a URL for the blob
+          return this.sanitizer.bypassSecurityTrustResourceUrl(urlToBlob); // tell Anuglar to trust this value
+        }),
+      );
+  }
+
+  getWholeFile() {
+    return this.http.get(environment.api_url + '/getwholefile',
+    {
+      headers: {'Content-Type': 'image/png' },
+      responseType: 'text',
+    });
   }
 
   //=====NGRX HANDLING=====>

@@ -17,6 +17,7 @@ app.use(express.json({ limit: "500000000mb" }));
 app.use(express.urlencoded({ limit: "500000000mb" }));
 const CryptoJS = require("crypto-js");
 const fs = require("fs");
+const path = require('path')
 //---------------------------------------------------------------->
 app.use("/getcustomers", require("./customersRoutes"));
 app.use("/auth", require("./authRoutes"));
@@ -129,6 +130,44 @@ app.get("/requestTime", (req, res) => {
 //         }
 //     );
 // })
+app.post('/getwholefile', (req, res) => {
+  const imageName = "carrot"
+  const imagePath = path.join(__dirname, req.body.ref);
+
+  fs.exists(imagePath, exists => {
+      if (exists) {
+          const { size } = fs.statSync(imagePath);
+
+          res.writeHead(200, {
+              'Content-Type': 'image/png',
+              'Content-Length': size,
+              'Content-Disposition': `attachment; filename='${imageName}`
+          });
+
+          fs.createReadStream(imagePath).pipe(res);
+
+      }
+      else res.status(400).send('Error: Image does not exists');
+  });
+});
+
+app.get('/getwholefil',function (req, res){
+  fs.readFile("./" + 'products' + ".json", "utf8", (error, data) => {
+    if (error) {
+      console.log(error);
+      return;
+    }else{
+
+      const file = `./12.png`;
+      res.set({'Content-Type': 'image/png'});
+      res.setHeader('Content-Type', 'image/png');
+      res.download(file); // Set disposition and send it.
+      res.send(file)
+    }
+  })
+} )
+
+
 
 app.post("/writenewany", function (req, res) {
   console.log(req.body);

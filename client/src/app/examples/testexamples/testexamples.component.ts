@@ -17,9 +17,24 @@ import { ApiService } from 'src/app/services/api.service';
 export class TestexamplesComponent implements OnInit {
   constructor(public _fb: FormBuilder, public _api: ApiService) {}
 
-  public products:products[]
+  public urlFromServerForImage
+
+  public products: products[];
 
   public form: FormGroup;
+
+  public show: { [key: string]: boolean } = {}
+
+  public testArray = [
+    { id: '1', name: 'one' },
+    { id: '2', name: 'two' },
+    { id: '3', name: 'three' },
+    { id: '4', name: 'four' },
+    { id: '5', name: 'five' },
+    { id: '6', name: 'six' },
+    { id: '7', name: 'seven' },
+    { id: '8', name: 'eight' },
+  ];
 
   profileFormArray = this._fb.group({
     firstName: ['', Validators.required],
@@ -42,22 +57,36 @@ export class TestexamplesComponent implements OnInit {
   //====================================================================================>
 
   public ngOnInit(): void {
-    this._api.getProducts().subscribe({
-      next: (res) => {
+
+    this._api.getImage({ref:"20.png"}).subscribe({
+      next:(res)=>{
         console.log(res);
-        this.products = res;
+        this.urlFromServerForImage = res
       },
-    });
+      error:(err)=>{
+        console.log((err)); 
+      },
+      complete:()=>{
+        console.log('complete file sync');
+      }
+    })
 
-    for (let x = 0; x < 10; x++) {
-      this.aliases.push(
-        this._fb.control('aaa', [Validators.required, Validators.minLength(3)])
-      );
+    // this._api.getProducts().subscribe({
+    //   next: (res) => {
+    //     console.log(res);
+    //     this.products = res;
+    //   },
+    // });
 
-      setTimeout(() => {
-        this.profileFormArray.controls.aliases.controls[2].reset();
-      }, 1000);
-    }
+    // for (let x = 0; x < 10; x++) {
+    //   this.aliases.push(
+    //     this._fb.control('aaa', [Validators.required, Validators.minLength(3)])
+    //   );
+
+    //   setTimeout(() => {
+    //     this.profileFormArray.controls.aliases.controls[2].reset();
+    //   }, 1000);
+    // }
   }
 
   addAlias(e) {
@@ -82,10 +111,16 @@ export class TestexamplesComponent implements OnInit {
 
   //====================================================================================>
 
+  changeName(product, value, e) {
+    product.productName = value;
+  }
 
-
-  changeName(product,value,e){
-    product.productName = value
+  showFunction(id){
+    console.log(this.show[id]);
+    this.show[id] = !this.show[id]
+    console.log(this.show);
+    
+  
   }
 
   //====================================================================================>

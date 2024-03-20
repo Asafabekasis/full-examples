@@ -2,6 +2,17 @@
   <h5>Test Examples</h5>
   <h5>Customers List From Api</h5>
 
+  <div >
+    <img [src]="this.urlFromServerForImage" style="width:20rem;height: 20rem;">
+  </div>
+
+  <div *ngFor="let test of testArray" style="cursor: pointer;" (click)="showFunction(test.id)">
+    <div style="display: flex;">
+    <div style="width: 5rem;">{{test.id}}</div>
+    <div>{{test.name}}</div>
+    </div>
+  </div>
+
   <div class="example-wrapper">
     <h5>Form Array</h5>
     <form [formGroup]="profileFormArray" (ngSubmit)="addAlias($event)">
