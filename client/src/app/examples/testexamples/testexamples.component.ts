@@ -71,22 +71,22 @@ export class TestexamplesComponent implements OnInit {
       }
     })
 
-    // this._api.getProducts().subscribe({
-    //   next: (res) => {
-    //     console.log(res);
-    //     this.products = res;
-    //   },
-    // });
+    this._api.getProducts().subscribe({
+      next: (res) => {
+        console.log(res);
+        this.products = res;
+      },
+    });
 
-    // for (let x = 0; x < 10; x++) {
-    //   this.aliases.push(
-    //     this._fb.control('aaa', [Validators.required, Validators.minLength(3)])
-    //   );
+    for (let x = 0; x < 10; x++) {
+      this.aliases.push(
+        this._fb.control('aaa', [Validators.required, Validators.minLength(3)])
+      );
 
-    //   setTimeout(() => {
-    //     this.profileFormArray.controls.aliases.controls[2].reset();
-    //   }, 1000);
-    // }
+      setTimeout(() => {
+        this.profileFormArray.controls.aliases.controls[2].reset();
+      }, 1000);
+    }
   }
 
   addAlias(e) {
