@@ -1,6 +1,15 @@
 <div class="module-wrapper">
   <h5>Test Examples</h5>
-  <h5>Customers List From Api</h5>
+  <h5>Products List From Api</h5>
+
+  <div *ngFor="let product of products">
+    <div>{{ product.productName }} - {{ product.id }}</div>
+    <input type="text" #val /><button
+      (click)="changeName(product, val.value, $event)"
+    >
+      Change
+    </button>
+  </div>
 
   <div >
     <img [src]="this.urlFromServerForImage" style="width:5rem;height: 5rem;">
@@ -32,12 +41,4 @@
 
   <br />
 
-  <div *ngFor="let product of products">
-    <div>{{ product.productName }} - {{ product.id }}</div>
-    <input type="text" #val /><button
-      (click)="changeName(product, val.value, $event)"
-    >
-      Change
-    </button>
-  </div>
 </div>

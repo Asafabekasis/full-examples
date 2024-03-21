@@ -130,6 +130,30 @@ app.get("/requestTime", (req, res) => {
 //         }
 //     );
 // })
+
+
+//exists is deprecated 
+// import { exists, open, close } from 'node:fs';
+
+// exists('myfile', (e) => {
+//   if (e) {
+//     console.error('myfile already exists');
+//   } else {
+//     open('myfile', 'wx', (err, fd) => {
+//       if (err) throw err;
+
+//       try {
+//         writeMyData(fd);
+//       } finally {
+//         close(fd, (err) => {
+//           if (err) throw err;
+//         });
+//       }
+//     });
+//   }
+// });
+
+
 app.post('/getwholefile', (req, res) => {
   const imageName = "carrot"
   const imagePath = path.join(__dirname, req.body.ref);
@@ -150,24 +174,6 @@ app.post('/getwholefile', (req, res) => {
       else res.status(400).send('Error: Image does not exists');
   });
 });
-
-app.get('/getwholefil',function (req, res){
-  fs.readFile("./" + 'products' + ".json", "utf8", (error, data) => {
-    if (error) {
-      console.log(error);
-      return;
-    }else{
-
-      const file = `./12.png`;
-      res.set({'Content-Type': 'image/png'});
-      res.setHeader('Content-Type', 'image/png');
-      res.download(file); // Set disposition and send it.
-      res.send(file)
-    }
-  })
-} )
-
-
 
 app.post("/writenewany", function (req, res) {
   console.log(req.body);
