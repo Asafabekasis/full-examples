@@ -13,7 +13,7 @@ export class NestexamplesComponent implements OnInit {
   ngOnInit(): void {
     this.nestService.getUsers().subscribe(
       res=>{
-        console.log(res);
+        console.log(res);  
         
       }
     )
