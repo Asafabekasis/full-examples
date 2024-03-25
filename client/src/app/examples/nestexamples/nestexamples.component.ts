@@ -11,7 +11,7 @@ export class NestexamplesComponent implements OnInit {
   constructor(public nestService:NestService) { }
 
   ngOnInit(): void {
-    this.nestService.getProducts().subscribe(
+    this.nestService.getUsers().subscribe(
       res=>{
         console.log(res);
         
