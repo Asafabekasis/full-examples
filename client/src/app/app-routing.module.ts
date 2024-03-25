@@ -32,6 +32,7 @@ const routes: Routes = [
   { path:'', component: MenuComponent },
   { path: 'testexamples', loadChildren: () => import('./examples/testexamples/testexamples.module').then(m => m.TestexamplesModule) },
   { path: 'nestexamples', loadChildren: () => import('./examples/nestexamples/nestexamples.module').then(m => m.NestexamplesModule) },
+  { path: 'uploadexamples', loadChildren: () => import('./examples/uploadexamples/uploadexamples.module').then(m => m.UploadexamplesModule) },
   { path: '**', redirectTo:''},
 ];
 
