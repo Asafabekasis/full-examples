@@ -74,7 +74,7 @@ export class TestexamplesComponent implements OnInit {
             ])
           );
         });
-        console.log(this.productsForm);
+        console.log(this.productsForm); 
       },
     });
   }
