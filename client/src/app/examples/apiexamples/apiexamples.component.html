@@ -1,7 +1,12 @@
 <div class="component-wrapper">
   <h4>Api Examples</h4>
 
-  <h5>Customers List From Api </h5>
+  <div>
+    <h4>png from server</h4>
+    <img [src]="this.urlFromServerForImage" style="width: 5rem; height: 5rem" />
+  </div>
+
+  <h5>Customers List From Api</h5>
   <div *ngFor="let customer of customers">
     <div>{{ customer.customerName }} - {{ customer.id }}</div>
   </div>

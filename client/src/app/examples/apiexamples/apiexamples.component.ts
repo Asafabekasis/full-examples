@@ -17,6 +17,8 @@ export class ApiexamplesComponent implements OnInit {
   public products: products[] = [];
   public fromExample = from(this._api.getProducts());
 
+  public urlFromServerForImage;
+
   // ngOnInit(): void {
   //   this.fromExample.pipe(map((m)=>m.map((c)=>{return {...c,color:'red'}}))).subscribe({
   //         next: (v) => console.log('next', v),
@@ -27,9 +29,21 @@ export class ApiexamplesComponent implements OnInit {
   // }
 
   ngOnInit(): void {
+    this._api.getImage({ ref: '20.png' }).subscribe({
+      next: (res) => {
+        console.log(res);
+        this.urlFromServerForImage = res;
+      },
+      error: (err) => {
+        console.log(err);
+      },
+      complete: () => {
+        console.log('complete file sync');
+      },
+    });
 
     this._api.getCustomers().subscribe({
-      next: (v) => this.customers = v,
+      next: (v) => (this.customers = v),
       error: (e) => console.error('aaaaaaaaaaaaaaaaaaaaaaa', e),
       complete: () => console.info('complete'),
     });
