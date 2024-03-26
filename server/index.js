@@ -127,28 +127,26 @@ app.use(
 );
 app.use(bodyParser.json());
 
-app.post("/upload", (req, res) => {
-  console.log(req.body);
-  fs.writeFileSync(`./test.png`,JSON.stringify(req.body.file));
-  res.send(req.body);
-});
+// app.post("/upload", (req, res) => {
+//   console.log(req.body);
+//   fs.writeFileSync(`./test.png`,JSON.stringify(req.body.file));
+//   res.send(req.body);
+// });
 
-// app.post('/upload',(req,res)=>{
-
-//   fs.writeFile('examplepngsave.json',[{file:JSON.stringify(req.body.file)}], function (err) {
-//     if (err) throw err;
-//     if (fs.existsSync("./examplepngsave.json")) {
-//       fs.readFile("./examplepngsave.json", "utf8",  (error, data) => {
-//         if (error) {
-//           console.log(error);
-//           return;
-//         }
-//         console.log(data);
-//         res.send(data);
-//       });
-//     }
-//   });
-// })
+app.post('/upload',(req,res)=>{
+  fs.writeFile('examplepngsave.json',JSON.stringify(req.body), function (err) {
+    if (err) throw err;
+    if (fs.existsSync("./examplepngsave.json")) {
+      fs.readFile("./examplepngsave.json", "utf8",  (error, data) => {
+        if (error) {
+          console.log(error);
+          return;
+        }
+        res.send(data);
+      });
+    }
+  });
+})
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // app.post('/writenewany', function (req, res) {

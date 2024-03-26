@@ -16,13 +16,15 @@ export class UploadexamplesComponent implements OnInit {
   name = 'Angular';
   fileToUpload: any;
   imageUrl: any;
-  respondImg 
+  respondImg:any = {file:''}
   handleFileInput(file) {
     this.fileToUpload = file.target.files.item(0);
     let reader = new FileReader();
     reader.onload = (event: any) => {
       this.imageUrl = event.target.result;
       this.uploadService.upload(this.imageUrl).subscribe((res) => {
+        console.log(res);
+        
         this.respondImg = res
         
       });
