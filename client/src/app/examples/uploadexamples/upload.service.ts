@@ -11,18 +11,32 @@ export class UploadService {
 
   upload(file: File): Observable<HttpEvent<any>> {
 
-  const filee = new File([file], "file_name", { type: file.type });
+    const filee = new File([file], "file_name", { type: file.type });
+  
+    let formData = new FormData();
+    formData.append('file', filee, 'file.png');
+  
+    console.log(formData);
+  
+    const api = `${environment.api_url}/upload`;
+    return this.http.post<any>(api, formData);
+  
+    }
 
-  let formData = new FormData();
-  formData.append('file', file, 'file.png');
+  // upload(file: File): Observable<HttpEvent<any>> {
 
-  console.log(formData);
+  // const filee = new File([file], "file_name", { type: file.type });
+
+  // let formData = new FormData();
+  // formData.append('file', file, 'file.png');
+
+  // console.log(formData);
   
 
-  const api = `${environment.api_url}/upload`;
-  return this.http.post<any>(api, JSON.stringify(formData));
+  // const api = `${environment.api_url}/upload`;
+  // return this.http.post<any>(api, JSON.stringify(formData));
 
-  }
+  // }
 
   getFiles(): Observable<any> {
     return this.http.get(`${environment.api_url}/files`);
