@@ -117,6 +117,40 @@ app.get("/requestTime", (req, res) => {
 //===========================================================================================================================================================================================================================================================>
 //=====FILES HANDLING=====>
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Upload Handle
+const bodyParser = require("body-parser");
+app.use(
+  bodyParser.urlencoded({
+    extended: false,
+  })
+);
+app.use(bodyParser.json());
+
+app.post("/upload", (req, res) => {
+  console.log(req.body);
+  fs.writeFileSync(`./test.png`,JSON.stringify(req.body.file));
+  res.send(req.body);
+});
+
+// app.post('/upload',(req,res)=>{
+
+//   fs.writeFile('examplepngsave.json',[{file:JSON.stringify(req.body.file)}], function (err) {
+//     if (err) throw err;
+//     if (fs.existsSync("./examplepngsave.json")) {
+//       fs.readFile("./examplepngsave.json", "utf8",  (error, data) => {
+//         if (error) {
+//           console.log(error);
+//           return;
+//         }
+//         console.log(data);
+//         res.send(data);
+//       });
+//     }
+//   });
+// })
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 // app.post('/writenewany', function (req, res) {
 //     console.log(req.body);
 //    let body = req.body.body;
@@ -386,24 +420,6 @@ app.post("/Email", function (req, res) {
     });
   }, 100);
 });
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//Upload Handle
-const bodyParser = require("body-parser");
-app.use(
-  bodyParser.urlencoded({
-    extended: false,
-  })
-);
-app.use(bodyParser.json());
-
-app.post("/upload", (req, res) => {
-  console.log(req.body);
-
-  fs.writeFileSync(`./test.png`,Buffer.from(req.body, 'base64'));
-  res.send(["OK"]);
-});
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

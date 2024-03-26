@@ -1,2 +1,7 @@
 <input #Image type="file" (change)="handleFileInput($event)" />
 <img *ngIf="imageUrl" [src]="imageUrl" class="image" style="width: 5rem; height: 5rem"  />
+
+<hr>
+
+<img *ngIf="imageUrl" [src]="respondImg.file" class="image" style="width: 5rem; height: 5rem"  />
+

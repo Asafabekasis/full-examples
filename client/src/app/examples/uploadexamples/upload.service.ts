@@ -10,9 +10,7 @@ export class UploadService {
   constructor(private http: HttpClient) {}
 
   upload(file): Observable<HttpEvent<any>> {
-    const api = `${environment.api_url}/upload`;
-    console.log(JSON.stringify(file));
-    
+    const api = `${environment.api_url}/upload`;    
     return this.http.post<any>(api, {file:file});
   }
 }
