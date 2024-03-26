@@ -1,7 +1,19 @@
-<input #Image type="file" (change)="handleFileInput($event)" />
-<img *ngIf="imageUrl" [src]="imageUrl" class="image" style="width: 5rem; height: 5rem"  />
+<div class="component-wrapper">
+  <input #Image type="file" (change)="handleFileInput($event)" />
+  <img
+    *ngIf="imageUrl"
+    [src]="imageUrl"
+    class="image"
+    style="width: 5rem; height: 5rem"
+  />
 
-<hr>
-
-<img *ngIf="imageUrl" [src]="respondImg.file" class="image" style="width: 5rem; height: 5rem"  />
-
+  <hr />
+  <div *ngIf="imageUrl">
+    <div>this image is saved in server ( in json file as base64 from client ) and sent back to client</div>
+    <img
+      [src]="respondImg.file"
+      class="image"
+      style="width: 5rem; height: 5rem"
+    />
+  </div>
+</div>
