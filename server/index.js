@@ -17,7 +17,7 @@ app.use(express.json({ limit: "500000000mb" }));
 app.use(express.urlencoded({ limit: "500000000mb" }));
 const CryptoJS = require("crypto-js");
 const fs = require("fs");
-const path = require('path')
+const path = require("path");
 //---------------------------------------------------------------->
 app.use("/getcustomers", require("./customersRoutes"));
 app.use("/auth", require("./authRoutes"));
@@ -68,8 +68,7 @@ app.post("/postcrypt", function (req, res) {
   ).toString(CryptoJS.enc.Utf8);
   console.log("password After Decrypt:::", decryptedPassword);
 
-    res.send(JSON.stringify('complete post'))
-  
+  res.send(JSON.stringify("complete post"));
 });
 
 //===========================================================================================================================================================================================================================================================>
@@ -131,8 +130,7 @@ app.get("/requestTime", (req, res) => {
 //     );
 // })
 
-
-//exists is deprecated 
+//exists is deprecated
 // import { exists, open, close } from 'node:fs';
 
 // exists('myfile', (e) => {
@@ -153,25 +151,22 @@ app.get("/requestTime", (req, res) => {
 //   }
 // });
 
-
-app.post('/getwholefile', (req, res) => {
-  const imageName = "carrot"
+app.post("/getwholefile", (req, res) => {
+  const imageName = "carrot";
   const imagePath = path.join(__dirname, req.body.ref);
 
-  fs.exists(imagePath, exists => {
-      if (exists) {
-          const { size } = fs.statSync(imagePath);
+  fs.exists(imagePath, (exists) => {
+    if (exists) {
+      const { size } = fs.statSync(imagePath);
 
-          res.writeHead(200, {
-              'Content-Type': 'image/png',
-              'Content-Length': size,
-              'Content-Disposition': `attachment; filename='${imageName}`
-          });
+      res.writeHead(200, {
+        "Content-Type": "image/png",
+        "Content-Length": size,
+        "Content-Disposition": `attachment; filename='${imageName}`,
+      });
 
-          fs.createReadStream(imagePath).pipe(res);
-
-      }
-      else res.status(400).send('Error: Image does not exists');
+      fs.createReadStream(imagePath).pipe(res);
+    } else res.status(400).send("Error: Image does not exists");
   });
 });
 
@@ -304,7 +299,11 @@ var executeQuery = function (res, query, parameters) {
 app.post("/product/update", function (req, res) {
   var parameters = [
     { name: "productName", sqltype: sql.NVarChar, value: req.body.productName },
-    { name: "productPrice", sqltype: sql.NVarChar, value: req.body.productPrice },
+    {
+      name: "productPrice",
+      sqltype: sql.NVarChar,
+      value: req.body.productPrice,
+    },
     { name: "productId", sqltype: sql.NVarChar, value: req.body.productId },
   ];
 
@@ -390,11 +389,19 @@ app.post("/Email", function (req, res) {
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Upload Handle
-app.post('/upload', (req, res) => {
-  console.log(req);
+const bodyParser = require("body-parser");
+app.use(
+  bodyParser.urlencoded({
+    extended: false,
+  })
+);
+app.use(bodyParser.json());
 
-  fs.writeFileSync(`./${req.name}`, parseInt(req, 10).toString());
-  res.send(['OK'])
+app.post("/upload", (req, res) => {
+  console.log(req.body);
+
+  fs.writeFileSync(`./test.png`,Buffer.from(req.body, 'base64'));
+  res.send(["OK"]);
 });
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

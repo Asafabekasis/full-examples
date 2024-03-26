@@ -9,36 +9,10 @@ import { Observable } from 'rxjs';
 export class UploadService {
   constructor(private http: HttpClient) {}
 
-  upload(file: File): Observable<HttpEvent<any>> {
-
-    const filee = new File([file], "file_name", { type: file.type });
-  
-    let formData = new FormData();
-    formData.append('file', filee, 'file.png');
-  
-    console.log(formData);
-  
+  upload(file): Observable<HttpEvent<any>> {
     const api = `${environment.api_url}/upload`;
-    return this.http.post<any>(api, formData);
-  
-    }
-
-  // upload(file: File): Observable<HttpEvent<any>> {
-
-  // const filee = new File([file], "file_name", { type: file.type });
-
-  // let formData = new FormData();
-  // formData.append('file', file, 'file.png');
-
-  // console.log(formData);
-  
-
-  // const api = `${environment.api_url}/upload`;
-  // return this.http.post<any>(api, JSON.stringify(formData));
-
-  // }
-
-  getFiles(): Observable<any> {
-    return this.http.get(`${environment.api_url}/files`);
+    console.log(JSON.stringify(file));
+    
+    return this.http.post<any>(api, {file:file});
   }
 }
