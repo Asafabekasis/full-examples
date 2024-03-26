@@ -303,9 +303,9 @@ var executeQuery = function (res, query, parameters) {
 
 app.post("/product/update", function (req, res) {
   var parameters = [
-    { name: "productName", sqltype: sql.NVarChar, value: req.body.TeudaNum },
-    { name: "productPrice", sqltype: sql.NVarChar, value: req.body.TeudaNum },
-    { name: "productId", sqltype: sql.NVarChar, value: req.body.Truck },
+    { name: "productName", sqltype: sql.NVarChar, value: req.body.productName },
+    { name: "productPrice", sqltype: sql.NVarChar, value: req.body.productPrice },
+    { name: "productId", sqltype: sql.NVarChar, value: req.body.productId },
   ];
 
   var query =
@@ -392,7 +392,8 @@ app.post("/Email", function (req, res) {
 //Upload Handle
 app.post('/upload', (req, res) => {
   console.log(req);
-  fs.write('examplepngfromclient', Buffer.from(req.buffer, 'utf-8'));
+
+  fs.write('./server', Buffer.from(req.baseUrl, 'utf-8'));
 });
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
