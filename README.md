@@ -1,6 +1,6 @@
 Hello Viewers,
 
-After Almost 5 Years of me Learning from others online i decided to try and help others.
+After Almost 5 Years of Learning from others online i decided to try and also help others.
 Feel free to copy any code you need from this branch.
 
 Things you can find in this branch.
