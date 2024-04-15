@@ -1,0 +1,6 @@
+<p>formarrayexamples works!</p>
+
+<div *ngFor="let product of arrayformControls; let i = index">
+   
+    <div (click)="productClicked(product.get('product').value.productId,$event,i)">{{product.get('product').value.productName}}</div>
+</div>

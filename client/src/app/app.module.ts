@@ -26,6 +26,7 @@ import { counterReducer, productsReducer } from './examples/ngrxexamples/main.re
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { MainEffects } from './examples/ngrxexamples/main.effect';
+import { FormarrayexamplesComponent } from './examples/formexamples/formarrayexamples/formarrayexamples.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { MainEffects } from './examples/ngrxexamples/main.effect';
     DirectiveexamplesComponent,
     MainComponent,
     EncryptdecryptComponent,
+    FormarrayexamplesComponent,
   ],
   imports: [
     BrowserModule,

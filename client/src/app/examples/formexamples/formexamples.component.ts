@@ -73,7 +73,7 @@ export class FormexamplesComponent implements OnInit {
     this.names = new FormArray([new FormControl('Alex')]);
     this.names.push(new FormControl('Jess'));
 
-    console.log('this.names', this.names);
+    // console.log('this.names', this.names);
 
     this.form = this._fb.group({
       fieldOne: ['', [Validators.required, Validators.minLength(4)]],
@@ -93,8 +93,8 @@ export class FormexamplesComponent implements OnInit {
       emitEvent: false,
     });
 
-    console.log(this.form);
-    console.log('this.profileFormArray', this.profileFormArray);
+    // console.log(this.form);
+    // console.log('this.profileFormArray', this.profileFormArray);
 
     setTimeout(() => {
       // this.form.addControl('',["",Validators.required],)
