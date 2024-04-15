@@ -1,6 +1,6 @@
-Hello Viewrs,
+Hello Viewers,
 
-After Almost 5 Years of me Learning from others online i decided to try and help others.
+After Almost 5 Years of Learning from others online i decided to try and also help others.
 Feel free to copy any code you need from this branch.
 
 Things you can find in this branch.
@@ -14,7 +14,7 @@ Things you can find in this branch.
 7.Rxjs, pipes, Directives, ReactiveForms, activation, templates and many more).
 8.Ngrx(Basic Examples).
 9.module Stractures, lazy loading, routing etc.
-10.Many more small Features (dive in the project to see), that i tried to keep simple for understanding.
+10.Many more small Features (dive in the project to see), that i tried to keep simple to understand.
 11.I will update this branch frequently adding new features for part of my skills improvemnt and learning. 
 12.If you need an example of anything related to Angular, Node js, express, nestjs, sql server, feel free to write me and ill do my best to add it to this branch.
 
@@ -28,7 +28,6 @@ Express
 Nodemailer
 mssql
 Cors
-PrimeNg
 crypto-js
 
 
