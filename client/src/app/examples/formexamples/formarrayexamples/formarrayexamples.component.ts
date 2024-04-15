@@ -4,61 +4,49 @@ import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-formarrayexamples',
   templateUrl: './formarrayexamples.component.html',
-  styleUrls: ['./formarrayexamples.component.scss']
+  styleUrls: ['./formarrayexamples.component.scss'],
 })
 export class FormarrayexamplesComponent implements OnInit {
-
-  constructor() { }
+  constructor() {}
 
   public uploadformGroup: FormGroup = new FormGroup({
-    products: new FormArray([], [Validators.required], [])
-});
+    products: new FormArray([], [Validators.required], []),
+  });
 
-get arrayformControls() {
-  return (this.uploadformGroup.get('products') as FormArray).controls;
-}
+  get arrayformControls() {
+    return (this.uploadformGroup.get('products') as FormArray).controls;
+  }
 
-get arrayform() {
-  return this.uploadformGroup.get('products') as FormArray;
-}
+  ngOnInit(): void {}
 
-public productsToDisplay = []
-
-
-  ngOnInit(): void {
-
+  insertNewProduct(productName, productId) {
     this.arrayformControls.push(
       new FormGroup({
-          product: this.setProductFormData({
-            productName: 'aaa',
-            productId: '1',
-          }),
+        product: this.setProductFormData({
+          productName: productName,
+          productId: productId,
+        }),
       })
-  );
+    );
 
-  console.log(this.arrayformControls);
-
-
+    console.log(this.arrayformControls);
   }
 
-  productClicked(product,e,i){
-
+  productClicked(product, e, i) {
     console.log(product);
 
-    console.log(e);
-  // this.uploadformGroup[0].get('aa.a').setValue('papapapa');
-
+    console.log(i);
+    this.arrayformControls[i].get('product.productName').setValue('papapapa');
   }
 
-  setProductFormData({ productName,productId }) {
+  setProductFormData({ productName, productId }) {
     return new FormGroup(
-        {
-            productName: new FormControl(productName, [], []),
-            ProductId: new FormControl(productId, [], []),
-        },
-        [],
-        []
+      {
+        productName: new FormControl(productName, [], []),
+        ProductId: new FormControl(productId, [], []),
+      },
+      [],
+      []
     );
-}
-
+  }
 }
