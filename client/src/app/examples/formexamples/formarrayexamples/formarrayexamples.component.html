@@ -1,9 +1,26 @@
 <p>formarrayexamples works!</p>
 
-<div *ngFor="let product of arrayformControls; let i = index">
+<!-- <div *ngFor="let product of arrayformControls; let i = index">
   <div
     (click)="productClicked($event, i)"
   >
     {{ product.get("product").value.productName }}
   </div>
-</div>
+</div> -->
+
+<!-- <div *ngFor="let product of arrayformControls; let i = index">
+  <div>
+    {{ product.get("product").value.productName }}
+    <input type="text" (keyup)="productKeUpChange($event, i, val.value)" #val />
+  </div>
+</div> -->
+
+<form>
+  <div *ngFor="let product of arrayformControls; let i = index">
+    <div
+    >
+      {{ product.get("product").value.productName }}
+      <input type="text" (keyup)="productKeUpChange($event, i, val.value)" #val>
+    </div>
+  </div>
+</form>

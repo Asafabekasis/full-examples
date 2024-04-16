@@ -58,11 +58,8 @@ export class FormarrayexamplesComponent implements OnInit {
     console.log(this.arrayformControls);
   }
 
-  productClicked( e, i) {
-    console.log(e);
-    console.log(i);
-    
-    this.arrayformControls[i].get('product.productName').setValue('papapapa');
+  productKeUpChange(e, i, value) {
+    this.arrayformControls[i].get('product.productName').setValue(value);
   }
 
   setProductFormData({ productName, id, color, price, section, active }) {
@@ -70,10 +67,10 @@ export class FormarrayexamplesComponent implements OnInit {
       {
         productName: new FormControl(productName, [], []),
         id: new FormControl(id, [], []),
-        color:new FormControl(color, [], []),
+        color: new FormControl(color, [], []),
         price: new FormControl(price, [], []),
-        section:new FormControl(section, [], []),
-        active:new FormControl(active, [], [])
+        section: new FormControl(section, [], []),
+        active: new FormControl(active, [], []),
       },
       [],
       []
