@@ -27,6 +27,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { MainEffects } from './examples/ngrxexamples/main.effect';
 import { FormarrayexamplesComponent } from './examples/formexamples/formarrayexamples/formarrayexamples.component';
+import { Formarrayexamples2Component } from './examples/formexamples/formarrayexamples2/formarrayexamples2.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { FormarrayexamplesComponent } from './examples/formexamples/formarrayexa
     MainComponent,
     EncryptdecryptComponent,
     FormarrayexamplesComponent,
+    Formarrayexamples2Component,
   ],
   imports: [
     BrowserModule,

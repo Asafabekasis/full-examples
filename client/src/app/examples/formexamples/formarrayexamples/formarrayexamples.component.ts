@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import {FormBuilder, FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from 'src/app/services/api.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./formarrayexamples.component.scss'],
 })
 export class FormarrayexamplesComponent implements OnInit {
-  constructor(public _api: ApiService) {}
+  constructor(public _api: ApiService, public _fb:FormBuilder) {}
 
   public uploadformGroup: FormGroup = new FormGroup({
     products: new FormArray([], [Validators.required], []),
@@ -37,6 +37,9 @@ export class FormarrayexamplesComponent implements OnInit {
       error: (err) => {},
       complete: () => {
         console.log('complete');
+        
+    console.log(this.arrayformControls);
+    console.log(this.uploadformGroup);
       },
     });
   }
@@ -54,8 +57,6 @@ export class FormarrayexamplesComponent implements OnInit {
         }),
       })
     );
-
-    console.log(this.arrayformControls);
   }
 
   productKeUpChange(e, i, value) {
@@ -76,4 +77,12 @@ export class FormarrayexamplesComponent implements OnInit {
       []
     );
   }
+  
+
+  aaa(e,i){
+    console.log(this.arrayformControls);
+    console.log(e);
+    
+  }
+
 }

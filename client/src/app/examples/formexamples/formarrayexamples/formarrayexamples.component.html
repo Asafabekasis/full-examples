@@ -15,12 +15,15 @@
   </div>
 </div> -->
 
-<form>
-  <div *ngFor="let product of arrayformControls; let i = index">
+<form [formGroup]="uploadformGroup">
+  <div *ngFor="let p of arrayformControls; let i = index" >
     <div
+    
     >
-      {{ product.get("product").value.productName }}
-      <input type="text" (keyup)="productKeUpChange($event, i, val.value)" #val>
+      {{ p.get("product").value.productName }}
+      <input type="text" (keyup)="aaa($event, i)" >
     </div>
   </div>
 </form>
+
+ 

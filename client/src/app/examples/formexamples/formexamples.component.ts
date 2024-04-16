@@ -117,8 +117,7 @@ export class FormexamplesComponent implements OnInit {
     }, 2000);
   }
 
-  check(e,val?) {
-
+  check(e, val?) {
     console.log(val);
     console.log('event', e);
     console.log('Form Control', this.favoriteColorControl);

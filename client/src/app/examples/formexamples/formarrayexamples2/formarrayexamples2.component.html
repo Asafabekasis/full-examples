@@ -1,0 +1,67 @@
+<p>formarrayexamples2 works!</p>
+
+<div class="example-wrapper">
+  <h5>Nested Form Group In Form Group</h5>
+  <form [formGroup]="profileForm2" (ngSubmit)="address($event)">
+    <label for="state">lastName: </label>
+    <input id="state" type="text" formControlName="lastName" />
+    <br />
+
+    <label for="zip">firstName: </label>
+    <input id="zip" type="text" formControlName="firstName" />
+
+    <div formGroupName="address">
+      <h5>Address Form Group In Form Group</h5>
+      <label for="street">Street: </label>
+      <input id="street" type="text" formControlName="street" />
+      <br />
+
+      <label for="city">City: </label>
+      <input id="city" type="text" formControlName="city" />
+      <br />
+
+      <label for="state">State: </label>
+      <input id="state" type="text" formControlName="state" />
+      <br />
+
+      <label for="zip">Zip Code: </label>
+      <input id="zip" type="text" formControlName="zip" />
+      <button type="submit">Submit</button>
+    </div>
+  </form>
+</div>
+
+<div class="example-wrapper">
+  <h5>Form Builder</h5>
+  <form [formGroup]="form" (ngSubmit)="onSubmitFormBuilder($event)">
+    <label for="first-name">fieldOne: </label>
+    <input id="first-name" type="text" formControlName="fieldOne" />
+
+    <label for="last-name">fieldTwo: </label>
+    <input id="last-name" type="text" formControlName="fieldTwo" />
+
+    <label for="last-name">fieldThree: </label>
+    <input id="last-name" type="text" formControlName="fieldThree" />
+    <p></p>
+    <button type="submit" [disabled]="!form.valid">Submit</button>
+  </form>
+  <br />
+</div>
+
+<!--====================================================================================================-->
+<!--====================================================================================================-->
+<!--====================================================================================================-->
+<!--====================================================================================================-->
+<!--====================================================================================================-->
+<!--====================================================================================================-->
+<!--====================================================================================================-->
+<!--====================================================================================================-->
+
+<form [formGroup]="uploadformGroup">
+  <div *ngFor="let p of arrayformControls; let i = index">
+    <div>
+      {{ p.get("product").value.productName }}
+      <input type="text" (keyup)="aaa($event, i)" />
+    </div>
+  </div>
+</form>
