@@ -36,54 +36,19 @@ export class Formarrayexamples2Component implements OnInit {
               productName: new FormControl(ob.productName),
             })
           );
-          // this.insertNewProduct(
-          //   ob.productName,
-          //   ob.id,
-          //   ob.color,
-          //   ob.price,
-          //   ob.section,
-          //   ob.active
-          // );
         });
       },
       error: (err) => {},
       complete: () => {
         console.log( this.arrayformControls);
-                
-        // console.log('complete');
-        // console.log(this.arrayformControls);
-        // console.log(this.uploadformGroup);
+
       },
     });
   }
 
   formGroupArraySubmit(e, i, value?) {
     console.log('this.arrayformControls', this.arrayformControls);
-    // this.arrayformControls[i].get('productName').setValue(value);
   }
-
-  // insertNewProduct(productName, id, color, price, section, active) {
-  //   this.arrayformControls.push(
-  //     new FormGroup({
-  //       productName: new FormControl(productName),
-  //     })
-  //   );
-  // }
-
-  // setProductFormData({ productName, id, color, price, section, active }) {
-  //   return new FormGroup(
-  //     {
-  //       productName: new FormControl(productName, [], []),
-  //       id: new FormControl(id, [], []),
-  //       color: new FormControl(color, [], []),
-  //       price: new FormControl(price, [], []),
-  //       section: new FormControl(section, [], []),
-  //       active: new FormControl(active, [], []),
-  //     },
-  //     [],
-  //     []
-  //   );
-  // }
 }
 
 //==========================================================================================================================>

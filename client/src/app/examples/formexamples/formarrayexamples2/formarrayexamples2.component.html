@@ -15,7 +15,12 @@
 <!--====================================================================================================-->
 <!--====================================================================================================-->
 <!--====================================================================================================-->
-
+<!-- <div *ngFor="let p of arrayformControls; let i = index"  >
+    <div>   
+      Product Name :{{ p.get('productName').value}}
+      <input type="text" (keyup.enter)="formGroupArraySubmit($event, i )"  />
+    </div>
+  </div> -->
 <!-- <div class="example-wrapper">
     <h5>Nested Form Group In Form Group</h5>
     <form [formGroup]="profileForm" (ngSubmit)="address($event)">
