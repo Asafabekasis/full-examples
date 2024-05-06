@@ -48,7 +48,7 @@ export class Formarrayexamples2Component implements OnInit {
 
   formGroupArraySubmit(e, i, value?) {
     console.log('this.arrayformControls', this.arrayformControls);
-  }
+    this.arrayformControls[i].get('productName').setValue('aaaaa');  }
 }
 
 //==========================================================================================================================>
