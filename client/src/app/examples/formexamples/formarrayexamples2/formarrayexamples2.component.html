@@ -3,7 +3,7 @@
   <div *ngFor="let p of arrayformControls; let i = index"  >
     <div>   
       Product Name :{{ p.get('productName').value}}
-      <input type="text" (keyup.enter)="formGroupArraySubmit($event, i )"  />
+      <input type="text" (keyup.enter)="formGroupArraySubmit($event, i,val.value )" #val  />
     </div>
   </div>
 
