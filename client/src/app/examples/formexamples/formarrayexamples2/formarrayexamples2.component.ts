@@ -16,8 +16,9 @@ import { ApiService } from 'src/app/services/api.service';
 export class Formarrayexamples2Component implements OnInit {
   constructor(public _api: ApiService, public _fb: FormBuilder) {}
 
-  public uploadformGroup= this._fb.group({
+  public uploadformGroup = this._fb.group({
     products: new FormArray([], [Validators.required], []),
+    // products: new FormArray([]),
   });
 
   get arrayformControls() {
@@ -25,7 +26,6 @@ export class Formarrayexamples2Component implements OnInit {
   }
 
   public results
-  public groups = []
 
   ngOnInit(): void {
     this._api.getProducts().subscribe({
@@ -33,24 +33,32 @@ export class Formarrayexamples2Component implements OnInit {
         this.results = res;
         this.results.forEach((ob,i) => {
           this.arrayformControls.push(
-             this.groups[i] = new FormGroup({
-              productName: new FormControl(ob.productName, [Validators.required, Validators.minLength(10)]),
+              new FormGroup({
+              productName: new FormControl(ob.productName, [Validators.required, Validators.minLength(7)]),
             })
           );
         });
       },
       error: (err) => {},
       complete: () => {
+        this.uploadformGroup.value.products = this.arrayformControls
       },
     });
   }
 
-  formGroupArraySubmit(e, i, value?) {
+  formGroupArraySubmit(e) {
     // this.arrayformControls[i].get('productName').setValue(value); 
-    console.log('this.arrayformControls=', this.arrayformControls);
+    console.log('===============================================================================================================================================');
+    console.log('this.uploadformGroup=',this.uploadformGroup);
     console.log('-----------------------------------------------------------------------------------------------------------------------------------------------');
-    console.log('this.groups=',this.groups);
-    
+    console.log('this.arrayformControls=', this.arrayformControls);
+  }
+
+  logs(){
+    console.log('===============================================================================================================================================');
+    console.log('this.uploadformGroup=',this.uploadformGroup);
+    console.log('-----------------------------------------------------------------------------------------------------------------------------------------------');
+    console.log('this.arrayformControls=', this.arrayformControls);
   }
 }
 
@@ -66,6 +74,73 @@ export class Formarrayexamples2Component implements OnInit {
 //=====================================================================================================================================================================>
 //=====================================================================================================================================================================>
 //=====================================================================================================================================================================>
+// import { Component, OnInit } from '@angular/core';
+// import {
+//   FormBuilder,
+//   FormArray,
+//   FormControl,
+//   FormGroup,
+//   Validators,
+// } from '@angular/forms';
+// import { ApiService } from 'src/app/services/api.service';
+
+// @Component({
+//   selector: 'app-formarrayexamples2',
+//   templateUrl: './formarrayexamples2.component.html',
+//   styleUrls: ['./formarrayexamples2.component.scss'],
+// })
+// export class Formarrayexamples2Component implements OnInit {
+//   constructor(public _api: ApiService, public _fb: FormBuilder) {}
+
+//   public uploadformGroup = this._fb.group({
+//     products: new FormArray([], [Validators.required], []),
+//     // products: new FormArray([]),
+//   });
+
+//   get arrayformControls() {
+//     return (this.uploadformGroup.get('products') as FormArray).controls;
+//   }
+
+//   public results
+//   public groups = []
+
+//   ngOnInit(): void {
+//     this._api.getProducts().subscribe({
+//       next: (res) => {
+//         this.results = res;
+//         this.results.forEach((ob,i) => {
+//           this.arrayformControls.push(
+//              this.groups[i] = new FormGroup({
+//               productName: new FormControl(ob.productName, [Validators.required, Validators.minLength(7)]),
+//             })
+//           );
+//         });
+//       },
+//       error: (err) => {},
+//       complete: () => {
+//       },
+//     });
+//   }
+
+//   formGroupArraySubmit(e) {
+//     // this.arrayformControls[i].get('productName').setValue(value); 
+//     console.log('===============================================================================================================================================');
+//     console.log('this.uploadformGroup=',this.uploadformGroup);
+//     console.log('-----------------------------------------------------------------------------------------------------------------------------------------------');
+//     console.log('this.arrayformControls=', this.arrayformControls);
+//     console.log('-----------------------------------------------------------------------------------------------------------------------------------------------');
+//     console.log('this.groups=',this.groups);
+//   }
+
+//   logs(){
+//     console.log('===============================================================================================================================================');
+//     console.log('this.uploadformGroup=',this.uploadformGroup);
+//     console.log('-----------------------------------------------------------------------------------------------------------------------------------------------');
+//     console.log('this.arrayformControls=', this.arrayformControls);
+//     console.log('-----------------------------------------------------------------------------------------------------------------------------------------------');
+//     console.log('this.groups=',this.groups);
+//   }
+// }
 //=====================================================================================================================================================================>
 //=====================================================================================================================================================================>
 //=====================================================================================================================================================================>
