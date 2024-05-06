@@ -25,15 +25,16 @@ export class Formarrayexamples2Component implements OnInit {
   }
 
   public results
+  public groups = []
 
   ngOnInit(): void {
     this._api.getProducts().subscribe({
       next: (res) => {
         this.results = res;
-        this.results.forEach((ob) => {
+        this.results.forEach((ob,i) => {
           this.arrayformControls.push(
-            new FormGroup({
-              productName: new FormControl(ob.productName),
+             this.groups[i] = new FormGroup({
+              productName: new FormControl(ob.productName, [Validators.required, Validators.minLength(10)]),
             })
           );
         });
@@ -47,8 +48,12 @@ export class Formarrayexamples2Component implements OnInit {
   }
 
   formGroupArraySubmit(e, i, value?) {
+    // this.arrayformControls[i].get('productName').setValue(value); 
     console.log('this.arrayformControls', this.arrayformControls);
-    this.arrayformControls[i].get('productName').setValue(value);  }
+    console.log('e',e);
+    console.log('groupssss:::::',this.groups);
+    
+  }
 }
 
 //==========================================================================================================================>

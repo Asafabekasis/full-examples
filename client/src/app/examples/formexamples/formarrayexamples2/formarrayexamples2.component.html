@@ -1,11 +1,21 @@
 <p>formarrayexamples2 works!</p>
 
+
   <div *ngFor="let p of arrayformControls; let i = index"  >
-    <div>   
+    <form [formGroup]="this.groups[i]" (ngSubmit)="formGroupArraySubmit($event,i)">   
       Product Name :{{ p.get('productName').value}}
-      <input type="text" (keyup.enter)="formGroupArraySubmit($event, i,val.value )" #val  />
-    </div>
+      <input type="text" formControlName="productName"/>
+      <button type="submit" [disabled]="!groups[i].valid">Submit</button>
+    </form>
   </div>
+
+
+  <!-- <div *ngFor="let p of arrayformControls; let i = index"  >
+      Product Name :{{ p.get('productName').value}}
+      <input type="text" (keyup.enter)="formGroupArraySubmit($event, i,val.value )" #val />
+      <input type="text" formControlName="productName"  />
+  </div> -->
+
 
 <!--====================================================================================================-->
 <!--====================================================================================================-->
