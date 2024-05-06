@@ -26,6 +26,7 @@ export class Formarrayexamples2Component implements OnInit {
   }
 
   public results
+  public sumDisable = true
 
   ngOnInit(): void {
     this._api.getProducts().subscribe({
@@ -59,6 +60,10 @@ export class Formarrayexamples2Component implements OnInit {
     console.log('this.uploadformGroup=',this.uploadformGroup);
     console.log('-----------------------------------------------------------------------------------------------------------------------------------------------');
     console.log('this.arrayformControls=', this.arrayformControls);
+  }
+
+  checkDisabled(){    
+    this.arrayformControls.every(ob=>ob.status === 'VALID')?this.sumDisable = false:true;
   }
 }
 

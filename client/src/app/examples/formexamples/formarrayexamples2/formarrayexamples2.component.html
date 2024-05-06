@@ -3,12 +3,12 @@
   <div *ngFor="let p of arrayformControls; let i = index"  >
     <form [formGroup]="this.uploadformGroup.value.products[i]" (ngSubmit)="formGroupArraySubmit($event)">   
       Product Name :{{ p.get('productName').value}}
-      <input type="text" formControlName="productName"/>
+      <input type="text" formControlName="productName" (keyup)="checkDisabled()"/>
       <button type="submit" [disabled]="!this.uploadformGroup.value.products[i].valid">Submit</button>
     </form>
   </div>
   <br>
-  <button type="submit" [disabled]="!this.uploadformGroup.value.products.valid" (ngSubmit)="formGroupArraySubmit($event)">Submit 2</button>
+  <button type="submit" [disabled]="sumDisable" (ngSubmit)="formGroupArraySubmit($event)">Submit All</button>
   <button type="button" (click)="logs()" >Submit Logs</button>
 
 <!--===========================================================================================================================================================================================-->
