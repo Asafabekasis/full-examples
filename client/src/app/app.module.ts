@@ -28,6 +28,8 @@ import { EffectsModule } from '@ngrx/effects';
 import { MainEffects } from './examples/ngrxexamples/main.effect';
 import { FormarrayexamplesComponent } from './examples/formexamples/formarrayexamples/formarrayexamples.component';
 import { Formarrayexamples2Component } from './examples/formexamples/formarrayexamples2/formarrayexamples2.component';
+import { ComponentsloopsComponent } from './examples/componentsloopsexamples/componentsloops/componentsloops.component';
+import { InnercomponentComponent } from './examples/componentsloopsexamples/innercomponent/innercomponent/innercomponent.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,8 @@ import { Formarrayexamples2Component } from './examples/formexamples/formarrayex
     EncryptdecryptComponent,
     FormarrayexamplesComponent,
     Formarrayexamples2Component,
+    ComponentsloopsComponent,
+    InnercomponentComponent,
   ],
   imports: [
     BrowserModule,

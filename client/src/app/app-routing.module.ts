@@ -11,6 +11,7 @@ import { DirectiveexamplesComponent } from './examples/directiveexamples/directi
 import { HomeComponent } from './components/home/home.component';
 import { MainComponent } from './components/main/main.component';
 import { EncryptdecryptComponent } from './examples/encryptdecrypt/encryptdecrypt.component';
+import { ComponentsloopsComponent } from './examples/componentsloopsexamples/componentsloops/componentsloops.component';
 
 const routes: Routes = [
   { path:'home', component: HomeComponent },
@@ -33,6 +34,8 @@ const routes: Routes = [
   { path: 'testexamples', loadChildren: () => import('./examples/testexamples/testexamples.module').then(m => m.TestexamplesModule) },
   { path: 'nestexamples', loadChildren: () => import('./examples/nestexamples/nestexamples.module').then(m => m.NestexamplesModule) },
   { path: 'uploadexamples', loadChildren: () => import('./examples/uploadexamples/uploadexamples.module').then(m => m.UploadexamplesModule) },
+  { path:'componentsloops', component: ComponentsloopsComponent },
+
   { path: '**', redirectTo:''},
 ];
 

@@ -1,0 +1,5 @@
+
+
+<div *ngFor="let a of array1">
+    <app-innercomponent [item]="a.id" (newItemEvent)="change($event)"></app-innercomponent>
+</div>
