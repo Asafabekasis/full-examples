@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./mainmenu.component.scss'],
 })
 export class MenuComponent implements OnInit {
-  constructor(public router: Router) {}
+  constructor(readonly router: Router) {}
   public config
 
   ngOnInit(): void {
