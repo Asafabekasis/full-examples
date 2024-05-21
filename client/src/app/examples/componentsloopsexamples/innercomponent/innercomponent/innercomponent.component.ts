@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-innercomponent',
@@ -10,13 +11,19 @@ export class InnercomponentComponent implements OnInit {
   @Input() item: any 
   @Output() newItemEvent = new EventEmitter<any>();
 
+  example
   constructor() { }
 
   ngOnInit(): void {
+    this.example = new FormControl(this.item);
+
   }
 
-  change(param){
-    this.newItemEvent.emit([this.item,param])
+  change(){
+
+    console.log(this.example.value);
+    
+    this.newItemEvent.emit([this.item,this.example.value])
   }
 
 }
