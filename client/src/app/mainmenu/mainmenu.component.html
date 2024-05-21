@@ -1,5 +1,5 @@
 <div class="component-wrapper">
-  <div *ngFor="let route of router.config;let i = index">
-    <h4 *ngIf="route.path !=='**'" [routerLink]="route.path">{{i}}. {{ route.path }}</h4>
+  <div *ngFor="let route of config;let i = index">
+    <h4 *ngIf="route.path !=='**'" [routerLink]="route.path">{{i+1}}. {{ route.path }}</h4>
   </div>
 </div>

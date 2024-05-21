@@ -6,6 +6,7 @@ import { RxjsexamplesComponent } from './rxjsexamples.component';
 import { ChildoneexampleComponent } from './components/childoneexample/childoneexample.component';
 import { ChildtwoexampleComponent } from './components/childtwoexample/childtwoexample.component';
 import { HighlightDirective } from 'src/app/directives/highlight.directive';
+import { Rxjsexamples2Component } from './rxjsexamples2/rxjsexamples2.component';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { HighlightDirective } from 'src/app/directives/highlight.directive';
     ChildoneexampleComponent,
     ChildtwoexampleComponent,
     HighlightDirective,
+    Rxjsexamples2Component,
   ],
   imports: [
     CommonModule,

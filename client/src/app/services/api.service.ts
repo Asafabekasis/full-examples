@@ -32,6 +32,10 @@ export class ApiService {
     return this.http.get<products[]>(environment.api_url + '/getproducts');
   }
 
+  public getProductsNotObservable() {
+    return this.http.get(environment.api_url + '/getproducts');
+  }
+
   public getProductById(id) {
     return this.http.get(environment.api_url + `/getproduct/${id}`);
   }

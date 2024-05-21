@@ -8,8 +8,11 @@ import { Router } from '@angular/router';
 })
 export class MenuComponent implements OnInit {
   constructor(public router: Router) {}
+  public config
 
   ngOnInit(): void {
     console.log('MenuComponent=>this.router:::', this.router);
+    this.config = this.router.config.filter(ob=>ob.path.length>3)
+    
   }
 }
