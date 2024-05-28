@@ -9,10 +9,12 @@ import {
   map,
   mergeAll,
   mergeMap,
+  of,
   reduce,
   switchMap,
   tap,
   toArray,
+  zip,
 } from 'rxjs';
 import { ApiService } from 'src/app/services/api.service';
 import { products } from 'src/app/interfaces';
@@ -40,7 +42,7 @@ export class Rxjsexamples2Component implements OnInit {
       )
       .subscribe({
         next: (res) => {
-          console.log(res);
+          console.log('res',res);
           this.resultsOf = res
           this.keepGoing()
         },
@@ -53,18 +55,28 @@ export class Rxjsexamples2Component implements OnInit {
           console.log('request completed');
         },
       });
+
+      // const age = of(27, 25, 29);
+      // const name = of('Foo', 'Bar', 'Beer');
+      // const isDev = of(true, true, false);
+
+      // zip(age, name, isDev)
+      // .pipe(map(([age, name, isDev]) => ({ age, name, isDev })))
+      // .subscribe((x) => console.log(x));
   }
 
   keepGoing(){
-
-    forkJoin(this.resultsOf).subscribe( (x)=> console.log(x))
+    console.log('in keep going');
     
-    // x.pipe(tap(res=>console.log('tap',res))).subscribe(
-    //   res=>{
-    //     console.log('aaa[0].subscribe');
-        
-    //   }
-    // )
+    of(this.resultsOf).subscribe( (x)=>{
+      var keys = []
+      x.forEach(element => {
+        keys.push(element.key)
+      });
+      console.log(keys);
+      
+    })
+
   }
 
 }

@@ -45,7 +45,7 @@ export class RxjsexamplesComponent implements OnInit {
     public _api: ApiService
   ) {
     this._subject.behaviorSubjectExample.subscribe((res) => {
-      console.log(res);
+      // console.log(res);
       this.behaviorSubjectExampleResult = res;
     });
   }
@@ -68,42 +68,42 @@ export class RxjsexamplesComponent implements OnInit {
 
     const source$ = of('Hello', 'Friend');
 
-    source$
+      // source$
       // emit on completion
-      .pipe(endWith('Goodbye', 'Friend'))
+      // .pipe(endWith('Goodbye', 'Friend'))
       // 'Hello', 'Friend', 'Goodbye', 'Friend'
-      .subscribe((val) => console.log(val));
+      // .subscribe((val) => console.log(val));
 
     const age$ = of(27, 25, 29);
     const name$ = of('Foo', 'Bar', 'Beer');
     const isDev$ = of(true, true, false);
 
-    zip(age$, name$, isDev$)
-      .pipe(map(([age, name, isDev]) => ({ age, name, isDev })))
-      .subscribe((x) => console.log(x));
+    // zip(age$, name$, isDev$)
+    //   .pipe(map(([age, name, isDev]) => ({ age, name, isDev })))
+    //   .subscribe((x) => console.log(x));
 
     //======>
-   const x = this._api
-      .getComplex()
-      .pipe
-      // switchAll(),
-      // map(ob=>{return ob.color = 'red'}),
-      ()
-      .subscribe({
-        next: (res) => {
-          console.log(res);
-        },
-        error: (err) => {
-          console.log('error occurd', err);
-        },
-        complete: () => {
-          console.log(' concatAll Complited');
-        },
-      });
+  //  const x = this._api
+  //     .getComplex()
+  //     .pipe
+  //     // switchAll(),
+  //     // map(ob=>{return ob.color = 'red'}),
+  //     ()
+  //     .subscribe({
+  //       next: (res) => {
+  //         console.log(res);
+  //       },
+  //       error: (err) => {
+  //         console.log('error occurd', err);
+  //       },
+  //       complete: () => {
+  //         console.log(' concatAll Complited');
+  //       },
+  //     });
 
-      setTimeout(() => {
-        x.unsubscribe()
-      }, 6000);
+  //     setTimeout(() => {
+  //       x.unsubscribe()
+  //     }, 6000);
 
     //======>
 
