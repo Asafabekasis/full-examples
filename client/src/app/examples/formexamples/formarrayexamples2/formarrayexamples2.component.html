@@ -8,7 +8,7 @@
     </form>
   </div>
   <br>
-  <button type="submit" [disabled]="sumDisable" (ngSubmit)="formGroupArraySubmit($event)">Submit All</button>
+  <button [disabled]="sumDisable" (click)="formGroupArraySubmit($event)">Submit All</button><!--this submit is out of form scope-->
   <button type="button" (click)="logs()" >Submit Logs</button>
 
 <!--===========================================================================================================================================================================================-->
